@@ -1,0 +1,15 @@
+/* Login container */
+.question-container {
+  margin: auto;
+  height: 100%;
+}
+
+.question-block {
+  margin: 20px 20px;
+  border-radius: 50px 20px;
+  border: 2px solid gray;
+}
+
+.title {
+  font-size: 30px;
+}

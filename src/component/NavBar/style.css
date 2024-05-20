@@ -1,0 +1,57 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li:hover {
+  background-color: gray;
+}
+
+.nav-bar-container {
+  background-color: #111;
+}
+
+.user-info {
+  color: white;
+  padding: 5px 10px 0 0;
+  gap: 0 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.logout-btn {
+  background-color: #f44336; /* Red background */
+  color: white; /* White text */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn i {
+  margin-right: 8px; /* Space between icon and text */
+}

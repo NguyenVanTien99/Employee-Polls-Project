@@ -1,0 +1,30 @@
+.clean-input {
+  width: 20%;
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px;
+  transition: border-color 0.3s;
+}
+
+.clean-input:focus {
+  border-color: #7873f5;
+  outline: none;
+}
+
+.three-d-btn {
+  background: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin: 10px;
+}
+
+.three-d-btn:active {
+  transform: translateY(4px);
+}

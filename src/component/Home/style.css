@@ -1,0 +1,10 @@
+/* Login container */
+.question-container {
+  height: 100%;
+}
+
+.question-block {
+  margin: 10px 10px;
+  border-radius: 20px 20px;
+  border: 2px solid gray;
+}

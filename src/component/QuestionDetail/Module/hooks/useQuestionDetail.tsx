@@ -1,16 +1,16 @@
+import { get } from "lodash";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { addAnswerQuestion } from "../../../../redux/action/questions";
+import { addAnswerUser } from "../../../../redux/action/user";
 import { Question as QuestionType } from "../../../../redux/reducer/questions";
-import { RootState } from "../../../../redux/store";
 import {
   selectAuthedUser,
   selectQuestions,
   selectUsers,
 } from "../../../../redux/selector/user";
-import { useNavigate, useParams } from "react-router-dom";
+import { RootState } from "../../../../redux/store";
 import { saveQuestionAnswer } from "../../../../util/api";
-import { addAnswerQuestion } from "../../../../redux/action/questions";
-import { addAnswerUser } from "../../../../redux/action/user";
-import { get } from "lodash";
 
 type questionDetailInfo = {
   questionInfoData: {
@@ -33,7 +33,6 @@ export const useQuestionDetail = (): questionDetailInfo => {
   const users = useSelector((state: RootState) => selectUsers(state));
 
   const { id } = useParams();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const questionInfo = Object.values(questions).find(

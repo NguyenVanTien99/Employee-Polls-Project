@@ -1,5 +1,5 @@
-.gradient-btn {
-  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+.gradient-red-btn {
+  background: linear-gradient(45deg, #570303, #f50606);
   border: none;
   border-radius: 25px;
   width: 400px;
@@ -10,8 +10,24 @@
   transition: background 0.3s;
 }
 
-.gradient-btn:hover {
-  background: linear-gradient(45deg, #7873f5, #ff6ec4);
+.gradient-red-btn:hover {
+  background: linear-gradient(45deg, #570303, #f50606);
+}
+
+.gradient-green-btn {
+  background: linear-gradient(45deg, #003600, #049104);
+  border: none;
+  border-radius: 25px;
+  width: 400px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.gradient-green-btn {
+  background: linear-gradient(45deg, #003600, #049104);
 }
 
 .choose-btn-container {

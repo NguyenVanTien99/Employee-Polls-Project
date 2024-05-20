@@ -1,10 +1,23 @@
-/* Login container */
-.question-container {
-  height: 100%;
+.tab-container {
+  margin: 40px 20px 0px 20px;
+  border: 2px solid gray;
 }
 
-.question-block {
-  margin: 10px 10px;
-  border-radius: 20px 20px;
-  border: 2px solid gray;
+.questions-btn {
+  padding: 0;
+  width: 50%;
+  height: 40px;
+  border: none;
+}
+
+.questions-btn-active {
+  background-color: gray;
+}
+
+.questions-btn:hover {
+  cursor: pointer;
+}
+
+.answered-questions-btn {
+  width: 50%;
 }

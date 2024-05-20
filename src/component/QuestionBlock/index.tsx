@@ -13,12 +13,13 @@ interface QuestionBlockProps {
   questionsSorted: QuestionType[];
   answers: (question: QuestionsState) => boolean;
   title: string;
+  isDisplay: boolean;
 }
 
 export const QuestionBlock: FC<QuestionBlockProps> = ({
   answers,
   questionsSorted,
-  title,
+  isDisplay,
 }) => {
   const users = useSelector((state: RootState) => selectUsers(state));
 
@@ -27,8 +28,7 @@ export const QuestionBlock: FC<QuestionBlockProps> = ({
   const isEmptyQuestion = questionList.length === 0;
 
   return (
-    <div className="question-block">
-      <div className="title">{title}</div>
+    <div className={`question-block  ${!isDisplay && "display-none"}`}>
       <ul className="question-container">
         {questionList.map((question) => (
           <li key={question.id}>

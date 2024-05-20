@@ -5,11 +5,12 @@ import { get } from "lodash";
 
 interface QuestionInfoProps {
   onclick: React.MouseEventHandler<HTMLButtonElement>;
-  hasVoted: any;
+  hasVoted: boolean;
   calcPercentage: (option: string, question?: QuestionType) => string;
   title: string;
   questionInfo?: QuestionType;
   option: string;
+  hasVotedForOption: boolean;
 }
 
 export const QuestionInfo: FC<QuestionInfoProps> = ({
@@ -19,9 +20,16 @@ export const QuestionInfo: FC<QuestionInfoProps> = ({
   calcPercentage,
   title,
   option,
+  hasVotedForOption,
 }) => {
   return (
-    <button className="gradient-btn" onClick={onclick} disabled={hasVoted}>
+    <button
+      className={`${
+        hasVotedForOption ? "gradient-green-btn" : "gradient-red-btn"
+      }`}
+      onClick={onclick}
+      disabled={hasVoted}
+    >
       <div>
         <p>{title}</p>
         {!hasVoted && <p>Click to choose !</p>}

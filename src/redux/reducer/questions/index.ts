@@ -42,7 +42,3 @@ export const questionsReducers = createSlice({
     },
   },
 });
-
-// export const { receiveQuestions, addQuestion, addAnswerQuestion } =
-//   questionsSlice.actions;
-// export default questionsSlice.reducer;

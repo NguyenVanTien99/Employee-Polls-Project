@@ -16,11 +16,12 @@ type questionDetailInfo = {
   questionInfoData: {
     id: number;
     calcPercentage: (option: string, question?: QuestionType) => string;
-    hasVoted: any;
+    hasVoted: boolean;
     onclick: React.MouseEventHandler<HTMLButtonElement>;
     title: string;
     questionInfo: QuestionType | undefined;
     option: string;
+    hasVotedForOption: boolean;
   }[];
   userId?: string;
   userAvatarURL?: string;
@@ -77,7 +78,6 @@ export const useQuestionDetail = (): questionDetailInfo => {
   ) => {
     e.preventDefault();
     handleAddAnswer(questionInfoId, "optionOne");
-    navigate("/");
   };
 
   const handleChooseOptionTwo: React.MouseEventHandler<HTMLButtonElement> = (
@@ -85,7 +85,6 @@ export const useQuestionDetail = (): questionDetailInfo => {
   ) => {
     e.preventDefault();
     handleAddAnswer(questionInfoId, "optionTwo");
-    navigate("/");
   };
 
   const calcPercentage = (option: string, question?: QuestionType) => {
@@ -118,6 +117,7 @@ export const useQuestionDetail = (): questionDetailInfo => {
       title: questionInfo?.optionOne.text,
       questionInfo,
       option: "optionOne",
+      hasVotedForOption: hasVotedForOptionOne,
     },
     {
       id: 2,
@@ -127,6 +127,7 @@ export const useQuestionDetail = (): questionDetailInfo => {
       title: questionInfo?.optionTwo.text,
       questionInfo,
       option: "optionTwo",
+      hasVotedForOption: hasVotedForOptionTwo,
     },
   ];
 

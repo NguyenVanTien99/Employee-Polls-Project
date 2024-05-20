@@ -1,10 +1,11 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { QuestionsState } from "../../redux/reducer/questions";
 import { selectAuthedUser, selectQuestions } from "../../redux/selector/user";
 import { RootState } from "../../redux/store";
 import { QuestionBlock } from "../QuestionBlock";
 import { get } from "lodash";
+import "./style.css";
 
 export const Home: FC = () => {
   const questions = useSelector((state: RootState) => selectQuestions(state));
@@ -33,6 +34,8 @@ export const Home: FC = () => {
     return optionOneVoteOfUser || optionTwoVoteOfUser;
   };
 
+  const [answersTab, setAnsweredTab] = useState<string>("New Questions");
+
   const questionBlockData = [
     {
       title: "New Questions",
@@ -46,16 +49,42 @@ export const Home: FC = () => {
     },
   ];
 
+  const handleClick = (event: any) => {
+    const innerText = event.target.innerText;
+    setAnsweredTab(innerText);
+  };
+
   return (
-    <div className="questions-container" data-testid="home-layout">
-      {questionBlockData.map(({ title, answers, id }) => (
-        <QuestionBlock
-          answers={answers}
-          questionsSorted={questionsSorted}
-          title={title}
-          key={id}
-        />
-      ))}
-    </div>
+    <>
+      <div className="tab-container">
+        <button
+          className={`questions-btn ${
+            answersTab === "New Questions" && "questions-btn-active"
+          }`}
+          onClick={handleClick}
+        >
+          New Questions
+        </button>
+        <button
+          className={`questions-btn ${
+            answersTab === "Answered Questions" && "questions-btn-active"
+          }`}
+          onClick={handleClick}
+        >
+          Answered Questions
+        </button>
+      </div>
+      <div className="questions-container" data-testid="home-layout">
+        {questionBlockData.map(({ title, answers, id }) => (
+          <QuestionBlock
+            isDisplay={answersTab === title}
+            answers={answers}
+            questionsSorted={questionsSorted}
+            title={title}
+            key={id}
+          />
+        ))}
+      </div>
+    </>
   );
 };

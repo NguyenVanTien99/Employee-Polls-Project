@@ -12,6 +12,7 @@ import { receiveQuestions } from "./redux/action/questions";
 import { QuestionDetail } from "./component/QuestionDetail";
 import { AddQuestion } from "./component/AddQuestion";
 import { LeaderBoard } from "./component/LeaderBoard";
+import { NotFound } from "./component/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +58,14 @@ function App() {
           element={
             <PrivateLayout>
               <LeaderBoard />
+            </PrivateLayout>
+          }
+        />
+        <Route
+          path="/404"
+          element={
+            <PrivateLayout>
+              <NotFound />
             </PrivateLayout>
           }
         />

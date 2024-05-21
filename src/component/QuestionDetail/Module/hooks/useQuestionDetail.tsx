@@ -1,6 +1,6 @@
 import { get } from "lodash";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { addAnswerQuestion } from "../../../../redux/action/questions";
 import { addAnswerUser } from "../../../../redux/action/user";
 import { Question as QuestionType } from "../../../../redux/reducer/questions";
@@ -11,6 +11,7 @@ import {
 } from "../../../../redux/selector/user";
 import { RootState } from "../../../../redux/store";
 import { saveQuestionAnswer } from "../../../../util/api";
+import { JsxElement } from "typescript";
 
 type questionDetailInfo = {
   questionInfoData: {
@@ -35,6 +36,12 @@ export const useQuestionDetail = (): questionDetailInfo => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  if (!authedUser || !questions || !users) {
+    return {
+      questionInfoData: [],
+    };
+  }
+
   const questionInfo = Object.values(questions).find(
     (question) => question.id === id
   );
@@ -44,6 +51,12 @@ export const useQuestionDetail = (): questionDetailInfo => {
 
   const authedUserId = get(authedUser, "id", "");
   const questionInfoId = get(questionInfo, "id", "");
+
+  if (!authedUserId || !questionInfoId) {
+    return {
+      questionInfoData: [],
+    };
+  }
 
   const hasVotedForOptionOne = get(questionInfo, "optionOne.votes").includes(
     authedUserId
